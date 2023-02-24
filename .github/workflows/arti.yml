@@ -1,15 +1,17 @@
-  name:  test run
-  on:
+name:  test run
+on:
     push:
- 
   
- steps: 
-  - name: Create a file
-    run: echo "I won't live long" > my_file.txt
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Create a file
+        run: echo "I won't live long" > my_file.txt
 
-  - name: Upload Artifact
-    uses: actions/upload-artifact@v3
-    with:
-      name: my-artifact
-      path: my_file.txt
-      retention-days: 5
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: my_file.txt
+          retention-days: 5
